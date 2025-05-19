@@ -20,3 +20,8 @@ To fully understand this model, learners should have basic knowledge of data str
 <!-- Add your description for memory pool here -->
 Efficient memory management is essential in embedded programming. Proper control of memory usage enhances system performance and helps reduce costs when selecting a microcontroller.
 ![Architecture Diagram](Image/pool_Memory.png)
+In this kernel, memory is managed using a memory pool. A fixed block of memory is allocated during initialization to create the pool.
+
+When memory is needed, the kernel automatically takes a block from the pool. After the task is completed, the kernel also automatically frees the memory and returns it to the pool for reuse.
+
+
