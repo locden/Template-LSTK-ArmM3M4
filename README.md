@@ -45,3 +45,18 @@ void LTK_Task_post(LTK_Task_t * const me, LTK_Evt_t const * const e);
 The content of a message includes:
 - Event.
 - Data — if you want to post data along with the event, you need to use a mutable event or allocate memory from the pool before posting.
+
+## 3. Timer
+Because this kernel uses an event-driven model, blocking delays cannot be used. Therefore, a non-blocking timer is designed to provide timing functionality without stopping task execution.
+This timer is triggered by the system tick and, on each tick, the handler checks the timer list, processes timer messages (type, period, task ID, etc.), and posts events to the corresponding tasks periodically.
+```c
+/* Set timer */
+void LTK_TimeEvt_arm(struct LTK_TimeEvt_t * me, uint32_t ctr, uint32_t interval);
+
+/* deleted timer */
+bool LTK_TimeEvt_disarm(struct LTK_TimeEvt_t * me);
+```
+When calling the timer set function, the kernel sends messages similar to task posting according to the configured timing cycle. There are two types of timers:
+
+- For a **one-shot timer**, set `interval` to `0` so the timer triggers only once after `ctr` ticks.  
+- For a **periodic timer**, set `interval` equal to `ctr` so the timer triggers repeatedly every `interval` ticks.
