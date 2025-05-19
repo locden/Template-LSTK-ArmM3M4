@@ -60,3 +60,5 @@ When calling the timer set function, the kernel sends messages similar to task p
 
 - For a **one-shot timer**, set `interval` to `0` so the timer triggers only once after `ctr` ticks.  
 - For a **periodic timer**, set `interval` equal to `ctr` so the timer triggers repeatedly every `interval` ticks.
+
+When calling the remove timer function, the kernel will proceed to delete the message to be deleted from the timer list.
