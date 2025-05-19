@@ -38,3 +38,7 @@ uint32_t mem_pool_getFreeBlockCount();
 ## 1. Task post:
 When the task post function is called, the kernel adds the message content to the task’s queue.
 ![Architecture Diagram](Image/Task.png)
+```c
+/* Post Event, Data to task's queue */
+void LTK_Task_post(LTK_Task_t * const me, LTK_Evt_t const * const e);
+```
