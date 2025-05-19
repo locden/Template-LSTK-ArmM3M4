@@ -19,4 +19,4 @@ To fully understand this model, learners should have basic knowledge of data str
 ## 1. Memory Pool:
 <!-- Add your description for memory pool here -->
 Efficient memory management is essential in embedded programming. Proper control of memory usage enhances system performance and helps reduce costs when selecting a microcontroller.
-![Architecture Diagram](Image/pool Memory.png)
+![Architecture Diagram](Image/pool_Memory.png)
