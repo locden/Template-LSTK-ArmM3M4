@@ -24,6 +24,12 @@ In this kernel, memory is managed using a memory pool. A fixed block of memory i
 
 When memory is needed, the kernel automatically takes a block from the pool. After the task is completed, the kernel also automatically frees the memory and returns it to the pool for reuse.
 
-The function `allocate_memory()` handles memory allocation from the pool.
+```c
+/* Allocate memory */
+void * mem_pool_allocate(void)
 
+/* Free memory */
+void mem_pool_free(void * ptr);
 
+/* Dump block */
+uint32_t mem_pool_getFreeBlockCount();
