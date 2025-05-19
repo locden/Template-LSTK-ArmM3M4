@@ -45,4 +45,5 @@ void LTK_Task_post(LTK_Task_t * const me, LTK_Evt_t const * const e);
 The content of a message includes:
 
 . Event.
+
 . Data — if you want to post data along with the event, you need to use a mutable event or allocate memory from the pool before posting.
