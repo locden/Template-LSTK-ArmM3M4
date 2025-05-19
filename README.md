@@ -4,17 +4,17 @@
 
 ### Key Concepts:
 - Active Object and priority preemption  
-. Per-task message queues  
-. Automatic message handling and removal  
-. Event-driven architecture  
+- Per-task message queues  
+- Automatic message handling and removal  
+- Event-driven architecture  
 
 To fully understand this model, learners should have basic knowledge of data structures such as linked lists, queues, memory pools, and object-oriented programming (OOP).
 
 ### Features:
-. Memory pool management  
-. Message posting and handling mechanisms  
-. Timer list support  
-. Observer pattern for decoupled communication  
+- Memory pool management  
+- Message posting and handling mechanisms  
+- Timer list support  
+- Observer pattern for decoupled communication  
 
 ## 1. Memory Pool:
 <!-- Add your description for memory pool here -->
@@ -43,7 +43,5 @@ When the task post function is called, the kernel adds the message content to th
 void LTK_Task_post(LTK_Task_t * const me, LTK_Evt_t const * const e);
 ```
 The content of a message includes:
-
-. Event.
-
-. Data — if you want to post data along with the event, you need to use a mutable event or allocate memory from the pool before posting.
+- Event.
+- Data — if you want to post data along with the event, you need to use a mutable event or allocate memory from the pool before posting.
