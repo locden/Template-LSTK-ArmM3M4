@@ -68,3 +68,16 @@ The Observer pattern allows tasks to be notified automatically when certain even
 
 In this kernel, observers can subscribe to specific events and receive updates whenever those events happen, enabling flexible and decoupled communication between tasks.
 ![Architecture Diagram](Image/Observer.png)
+```c
+/* Init Subject with signal to notify */
+void LTK_observerInit(obs_sub_t * sub, LTK_Signal sig);
+
+/* Attach the node to subject */
+bool LTK_observerAttach(obs_sub_t * sub, LTK_Task_t * node);
+
+/* Detach node from subject */
+bool LTK_observerDetach(obs_sub_t * sub, LTK_Task_t * node);
+
+/* Notify for all node which attach Subject */
+void LTK_observerNotify(obs_sub_t * sub, LTK_Evt_t const * const e);
+```
