@@ -15,6 +15,7 @@ To fully understand this model, learners should have basic knowledge of data str
 - Message posting and handling mechanisms  
 - Timer list support  
 - Observer pattern for decoupled communication  
+![Architecture Diagram](Image/diagram.png)
 
 ## 1. Memory Pool:
 <!-- Add your description for memory pool here -->
