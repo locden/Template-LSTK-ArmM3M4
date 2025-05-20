@@ -17,7 +17,10 @@ To fully understand this model, learners should have basic knowledge of data str
 - Observer pattern for decoupled communication  
 ![Architecture Diagram](Image/diagram.png)
 
-## 1. Memory Pool:
+## 1. All function of each Component
+![Architecture Diagram](Image/detailOfEachComponent.png)
+
+## 2. Memory Pool:
 <!-- Add your description for memory pool here -->
 Efficient memory management is essential in embedded programming. Proper control of memory usage enhances system performance and helps reduce costs when selecting a microcontroller.
 ![Architecture Diagram](Image/pool_Memory.png)
@@ -36,7 +39,7 @@ void mem_pool_free(void * ptr);
 uint32_t mem_pool_getFreeBlockCount();
 ```
 
-## 1. Task post:
+## 3. Task post:
 When the task post function is called, the kernel adds the message content to the task’s queue.
 ![Architecture Diagram](Image/Task.png)
 ```c
@@ -47,7 +50,7 @@ The content of a message includes:
 - Event.
 - Data — if you want to post data along with the event, you need to use a immutable event or allocate memory from the pool before posting.
 
-## 3. Timer
+## 4. Timer
 Because this kernel uses an event-driven model, blocking delays cannot be used. Therefore, a non-blocking timer is designed to provide timing functionality without stopping task execution.
 This timer is triggered by the system tick and, on each tick, the handler checks the timer list, processes timer messages (type, period, task ID, etc.), and posts events to the corresponding tasks periodically.
 ```c
@@ -64,7 +67,7 @@ When calling the timer set function, the kernel sends messages similar to task p
 
 When calling the remove timer function, the kernel will proceed to delete the message to be deleted from the timer list.
 
-## 4. Observer
+## 5. Observer
 The Observer pattern allows tasks to be notified automatically when certain events occur, without tight coupling between the sender and receiver.
 
 In this kernel, observers can subscribe to specific events and receive updates whenever those events happen, enabling flexible and decoupled communication between tasks.
